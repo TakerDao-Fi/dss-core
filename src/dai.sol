@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-pragma solidity >=0.5.12;
+pragma solidity >=0.6.12;
 
 // FIXME: This contract was altered compared to the production version.
 // It doesn't use LibNote anymore.
@@ -27,13 +27,13 @@ contract Dai {
     function rely(address guy) external auth { wards[guy] = 1; }
     function deny(address guy) external auth { wards[guy] = 0; }
     modifier auth {
-        require(wards[msg.sender] == 1, "Dai/not-authorized");
+        require(wards[msg.sender] == 1, "Xai/not-authorized");
         _;
     }
 
     // --- ERC20 Data ---
-    string  public constant name     = "Dai Stablecoin";
-    string  public constant symbol   = "DAI";
+    string  public constant name     = "Xai Stablecoin";
+    string  public constant symbol   = "XAI";
     string  public constant version  = "1";
     uint8   public constant decimals = 18;
     uint256 public totalSupply;
