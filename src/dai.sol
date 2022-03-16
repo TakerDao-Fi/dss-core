@@ -27,13 +27,13 @@ contract Dai {
     function rely(address guy) external auth { wards[guy] = 1; }
     function deny(address guy) external auth { wards[guy] = 0; }
     modifier auth {
-        require(wards[msg.sender] == 1, "Xai/not-authorized");
+        require(wards[msg.sender] == 1, "Tai/not-authorized");
         _;
     }
 
     // --- ERC20 Data ---
-    string  public constant name     = "Xai Stablecoin";
-    string  public constant symbol   = "XAI";
+    string  public constant name     = "Tai Stablecoin";
+    string  public constant symbol   = "TAI";
     string  public constant version  = "1";
     uint8   public constant decimals = 18;
     uint256 public totalSupply;
