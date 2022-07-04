@@ -27,13 +27,13 @@ contract Dai {
     function rely(address guy) external auth { wards[guy] = 1; }
     function deny(address guy) external auth { wards[guy] = 0; }
     modifier auth {
-        require(wards[msg.sender] == 1, "Tai/not-authorized");
+        require(wards[msg.sender] == 1, "XTUSD/not-authorized");
         _;
     }
 
     // --- ERC20 Data ---
-    string  public constant name     = "Tai Stablecoin";
-    string  public constant symbol   = "TAI";
+    string  public constant name     = "XT Stablecoin";
+    string  public constant symbol   = "XTUSD";
     string  public constant version  = "1";
     uint8   public constant decimals = 18;
     uint256 public totalSupply;
@@ -134,10 +134,10 @@ contract Dai {
                                      allowed))
         ));
 
-        require(holder != address(0), "Dai/invalid-address-0");
-        require(holder == ecrecover(digest, v, r, s), "Dai/invalid-permit");
-        require(expiry == 0 || now <= expiry, "Dai/permit-expired");
-        require(nonce == nonces[holder]++, "Dai/invalid-nonce");
+        require(holder != address(0), "XTUSD/invalid-address-0");
+        require(holder == ecrecover(digest, v, r, s), "XTUSD/invalid-permit");
+        require(expiry == 0 || now <= expiry, "XTUSD/permit-expired");
+        require(nonce == nonces[holder]++, "XTUSD/invalid-nonce");
         uint wad = allowed ? uint(-1) : 0;
         allowance[holder][spender] = wad;
         emit Approval(holder, spender, wad);
